@@ -1,6 +1,7 @@
 package database
 
 import (
+	"fmt"
 	"log"
 	"os"
 	"time"
@@ -41,11 +42,11 @@ func InitDb() error {
 		),
 	})
 	if err != nil {
-		log.Fatal("数据库打开失败!")
+		log.Fatal(fmt.Errorf("数据库打开失败!%w", err))
 	}
 	sqlDB, err := db.DB()
 	if err != nil {
-		log.Fatal("连接数据库失败!")
+		log.Fatal(fmt.Errorf("连接数据库失败!%w", err))
 	}
 	// SetMaxIdleConns 设置空闲连接池中连接的最大数量
 	sqlDB.SetMaxIdleConns(10)
