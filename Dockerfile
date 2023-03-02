@@ -14,7 +14,7 @@ FROM alpine:latest
 WORKDIR /app
 
 COPY --from=builder /app/main .
-RUN chmod 777 main
+COPY --from=builder /app/onelist.db .
 
 # 指定启动命令
 CMD ["./main", "-run", "server"]
