@@ -14,6 +14,7 @@ FROM alpine:latest
 WORKDIR /app
 
 COPY --from=builder /app/main .
+RUN chmod 777 main
 
 # 指定启动命令
 CMD ["./main", "-run", "server"]
