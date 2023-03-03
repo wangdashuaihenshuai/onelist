@@ -7,7 +7,9 @@ COPY . .
 
 RUN go build -o main .
 
-FROM scratch
+FROM alpine:3.14
+
+RUN apk add --no-cache sqlite-libs
 
 WORKDIR /app
 
